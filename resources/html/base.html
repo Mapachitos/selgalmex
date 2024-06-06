@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to pryectoclojure</title>
+  <!-- styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <style>
+    .moy {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      text-align: left;
+    }
+
+    .grayBG {
+      background-color: gray;
+    }
+
+    .borderBotton {
+      border-bottom: 2px solid #dbdbdb;
+    }
+    .moy-text{
+      all: unset; width: 100%; text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar is-info">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/" style="font-weight:bold;">Selgamex</a>
+        <span class="navbar-burger burger" data-target="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="nav-menu" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="/" class="navbar-item{% ifequal page " home.html" %} is-active{%endifequal%}">Registrar</a>
+          <a href="/cedes" class="navbar-item{% ifequal page " cedes.html" %} is-active{%endifequal%}">Cedes</a>
+          <a href="/entregas" class="navbar-item{% ifequal page " entregas.html" %}
+            is-active{%endifequal%}">Entregas</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container is-fluid">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </section>
+
+  <!-- scripts -->
+  <script type="text/javascript">
+    (function () {
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('#' + burger.dataset.target);
+      burger.addEventListener('click', function () {
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+      });
+    })();
+  </script>
+
+
+  {% block page-scripts %}
+  {% endblock %}
+</body>
+
+</html>

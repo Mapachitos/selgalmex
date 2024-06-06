@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="is-full box">
+      <h1 class="title is-flex is-justify-content-center">Cedes</h1>
+      <div class="columns has-text-weight-bold borderBotton" style="width: 100%;">
+        <div class="column has-text-centered" style="width: 10%;">Cede ID</div>
+        <div class="column has-text-centered" style="width: 10%;">Nombre</div>
+        <div class="column has-text-centered" style="width: 10%;">Ubicacion</div>
+        <div class="column has-text-centered" style="width: 10%;">Responsable</div>
+        <div class="column has-text-centered" style="width: 10%;">Selgalmex ID</div>
+        <div class="column has-text-centered" style="width: 10%;">Sader ID</div>
+        <div class="column has-text-centered" style="width: 10%;">Telefono</div>
+        <div class="column has-text-centered" style="width: 10%;">Titulo</div>
+        <div class="column has-text-centered" style="width: 10%;">Entregas</div>
+        <div class="column has-text-centered" style="width: 10%;">Actualizar</div>
+        <div class="column has-text-centered" style="width: 10%;">Eliminar</div>
+    </div>
+    {% for cede in cedes %}
+    <form method="post">  {% csrf-field %}
+      <input type="hidden" name="id" value="{{ cede.id }}" />
+      <div class="columns" style="width: 100%;">
+        <div class="column moy is-flex is-justify-content-center" style="width: 10%;">{{ cede.id }}</div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="nombre" value="{{ cede.nombre }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="ubicacion" value="{{ cede.ubicacion }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="responsable" value="{{ cede.responsable }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="selgalmexid" value="{{ cede.selgalmexid }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="saderid" value="{{ cede.saderid }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="telefono" value="{{ cede.telefono }}"></div>
+        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="titulo" value="{{ cede.titulo }}"></div>
+        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-success" type="submit" formaction="/entregas/{{ cede.id }}">👁</button></div>
+        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-primary" type="submit" formaction="/update-cede">✔</button></div>
+        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-danger" type="submit" formaction="/delete-cede">X</button></div>
+      </div>
+    </form>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

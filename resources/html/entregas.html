@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="is-full box">
+        <h1 class="title is-flex is-justify-content-center">Entregas</h1>
+        <div class="columns has-text-weight-bold borderBotton" style="width: 100%;">
+            <div class="column has-text-centered" style="width: 10%;">Estado</div>
+            <div class="column has-text-centered" style="width: 10%;">Municipio</div>
+            <div class="column has-text-centered" style="width: 10%;">Localidad</div>
+            <div class="column has-text-centered" style="width: 5%;">Nombres</div>
+            <div class="column has-text-centered" style="width: 5%;">Paterno</div>
+            <div class="column has-text-centered" style="width: 5%;">Materno</div>
+            <div class="column has-text-centered" style="width: 10%;">CURP</div>
+            <div class="column has-text-centered" style="width: 10%;">INE</div>
+            <div class="column has-text-centered" style="width: 10%;">Fecha</div>
+            <div class="column has-text-centered" style="width: 10%;">Recurso Entregado</div>
+            <div class="column has-text-centered" style="width: 5%;">Clave Cede</div>
+            <div class="column has-text-centered" style="width: 5%;">Eliminar</div>
+            <div class="column has-text-centered" style="width: 5%;">Actualizar</div>
+        </div>
+        {% for entrega in entregas %}
+        <form method="post">
+            {% csrf-field %}
+            <input type="hidden" name="id" value="{{ entrega.id }}">
+            <div class="columns" style="width: 100%;"><!-- Este es el que vas a iterar -->
+                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="estado" value="{{ entrega.estado }}"></div>
+                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="municipio" value="{{ entrega.municipio }}"></div>
+                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="localidad" value="{{ entrega.localidad }}"></div>
+                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="nombres" value="{{ entrega.nombres }}"></div>
+                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="apaterno" value="{{ entrega.apaterno }}"></div>
+                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="amaterno" value="{{ entrega.amaterno }}"></div>
+                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="curp" value="{{ entrega.curp }}"></div>
+                <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
+                    {% if entrega.ine = "Entrego" %}
+                        ✔
+                    {% else %}
+                        <input type="hidden" name="flagine" value="Entrego">
+                        <button class="button is-success mr-1" type="submit" formaction="/update-entrega-ine">Entregar</button>
+                    {% endif %}
+                    <input type="hidden" name="ine" value="{{ entrega.ine }}">
+                </div>
+                <div class="column moy" style="width: 10%;"><input type="date" class="input" name="fecha" value="{{ entrega.fecha }}"></div>
+                <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
+                    {% if entrega.estatusentrega = "SI" %}
+                        ✔
+                    {% elif entrega.ine = "Entrego" %}
+                    <input type="hidden" name="flagestatusentrega" value="SI">
+                    <button class="button is-success mr-1" type="submit" formaction="/update-entrega-estatus">Entregar</button>
+                    {% else %}
+                        ✖
+                    {% endif %}
+                    <input type="hidden" name="estatusentrega" value="{{ entrega.estatusentrega }}">
+                </div>
+                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="cedeid" value="{{ entrega.cedeid }}"></div>
+                <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
+                    <button class="button is-danger mr-1" type="submit" formaction="/delete-entrega">X</button>
+                </div>
+                <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
+                    <button class="button is-primary mr-1" type="submit" formaction="/update-entrega">✔</button>
+                </div>
+                
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

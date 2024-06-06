@@ -1,0 +1,21 @@
+2024-06-06 04:39:38,260 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 04:39:38,568 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-06 04:41:05,542 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
+2024-06-06 04:41:05,549 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.database - creating migration table 'schema_migrations' 
+2024-06-06 04:41:05,563 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x64909205 /home/lireyes/selgalmex/resources/migrations] 
+2024-06-06 04:41:05,565 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094033] 
+2024-06-06 04:41:05,566 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094033-cedes 
+2024-06-06 04:41:05,571 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
+2024-06-06 04:41:05,576 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094033 complete 
+2024-06-06 04:41:05,581 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
+2024-06-06 04:41:44,878 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
+2024-06-06 04:41:44,880 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x3fc662b4 /home/lireyes/selgalmex/resources/migrations] 
+2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094132] 
+2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094132-entregascede 
+2024-06-06 04:41:44,882 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
+2024-06-06 04:41:44,888 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094132 complete 
+2024-06-06 04:41:44,890 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
+2024-06-06 04:44:21,138 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 04:44:21,511 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  luminus.http-server - starting HTTP server on port 3000 

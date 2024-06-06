@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content columns">
+  <!-- CEDES -->
+  <div class="column is-half mr-4">
+    <form method="post" class="box">
+      {% csrf-field %}
+      <h1 class="title">Registrar Cede</h1>
+
+      <div class="field">
+        <label class="label">Nombre:</label>
+        <div class="control">
+          <input class="input" type="text" name="nombre" placeholder="Nombre de la cede" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Ubicacion:</label>
+        <div class="control">
+          <input class="input" type="text" name="ubicacion" placeholder="Ubicacion de la cede" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Responsable:</label>
+        <div class="control">
+          <input class="input" type="text" name="responsable" placeholder="Responsable de la cede" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">ID Selgamex:</label>
+        <div class="control">
+          <input class="input" type="text" name="selgalmexid" placeholder="ID Selgamex" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">ID Sader:</label>
+        <div class="control">
+          <input class="input" type="text" name="saderid" placeholder="ID Sader" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Telefono:</label>
+        <div class="control">
+          <input class="input" type="text" name="telefono" placeholder="Telefono de la cede" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Titulo:</label>
+        <div class="control">
+          <input class="input" type="text" name="titulo" placeholder="Titulo de la cede" required/>
+        </div>
+      </div>
+      <input class="button is-primary my-1" type="submit" value="Agregar" formaction="/create-cede">
+    </form>
+  </div>
+  <!-- ENTREGAS -->
+  <div class="column is-half mr-4">
+    <form method="post" class="box">
+      {% csrf-field %}
+      <h1 class="title">Registrar Entrega</h1>
+
+      <div class="field">
+        <label class="label">Estado:</label>
+        <div class="control">
+          <input class="input" type="text" name="estado" placeholder="Estado" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Municipio:</label>
+        <div class="control">
+          <input class="input" type="text" name="municipio" placeholder="Municipio" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Localidad:</label>
+        <div class="control">
+          <input class="input" type="text" name="localidad" placeholder="Localidad" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Nombre(s):</label>
+        <div class="control">
+          <input class="input" type="text" name="nombres" placeholder="Nombre(s)" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Apellido Paterno:</label>
+        <div class="control">
+          <input class="input" type="text" name="apaterno" placeholder="Apellido Paterno" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Apellido Materno:</label>
+        <div class="control">
+          <input class="input" type="text" name="amaterno" placeholder="Apellido Materno" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">CURP:</label>
+        <div class="control">
+          <input class="input" type="text" name="curp" placeholder="CURP" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">INE:</label>
+        <div class="control">
+          <div class="select">
+            <select name="ine">
+              <option value="Entrego">Entrego</option>
+              <option value="No Entrego">No Entrego</option>
+            </select>
+          </div>
+        </div>
+      </div>  
+
+      <div class="field">
+        <label class="label">Fecha de Entrega:</label>
+        <div class="control">
+          <input class="input" type="date" name="fecha" placeholder="Fecha" required/>
+        </div>
+      </div>    
+      
+      <div class="field">
+        <label class="label">Cede:</label>
+        <div class="control">
+          <div class="select">
+            <select name="cedeid">
+              {% for cede in cedes %}
+                <option value="{{cede.id}}">{{ cede.nombre }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div> 
+      <input type="hidden" name="estatusentrega" value="NO" required>
+      <input class="button is-primary my-1" type="submit" value="Agregar" formaction="/create-entrega">
+    </form>
+    
+  </div>
+</div>
+{% endblock %}

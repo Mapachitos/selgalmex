@@ -1,0 +1,7 @@
+(start)
+(create-migration "cedes")
+(migrate)
+(create-migration "entregascede")
+(migrate)
+(satart)
+(start)

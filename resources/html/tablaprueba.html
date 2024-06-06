@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="container is-fluid box">
+        <div class="container is-fluid mb-4">
+            <h1 class="title">Entregas</h1>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Clave De La Entrega</th>
+                        <th>Estado</th>
+                        <th>Municipio</th>
+                        <th>localidad</th>
+                        <th>nombres</th>
+                        <th>curp</th>
+                        <th>ine</th>
+                        <th>fecha</th>
+                        <th>Entregado</th>
+                        <th>Cede ID</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entrega in entregas %}
+                    <tr>
+                        <td >{{ entrega.id }}</td>
+                        <td>{{ entrega.estado }}</td>
+                        <td>{{ entrega.municipio }}</td>
+                        <td>{{ entrega.localidad }}</td>
+                        <td>{{ entrega.nombres }}</td>
+                        <td>{{ entrega.curp }}</td>
+                        <td>{{ entrega.ine }}</td>
+                        <td>{{ entrega.fecha }}</td>
+                        <td>{{ entrega.estatusentrega }}</td>
+                        <td>{{ entrega.cedeid }}</td>
+                        <td>
+                            <form action="/delete-entrega" method="post">
+                                {% csrf-field %}
+                                <input type="hidden" name="id" value="{{ entrega.id }}" />
+                                <button class="button is-danger" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
