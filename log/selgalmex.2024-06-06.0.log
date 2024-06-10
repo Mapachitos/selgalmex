@@ -1,16 +1,31 @@
-2024-06-06 04:41:05 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SCHEMA_MIGRATIONS" not found; SQL statement:
-SELECT 1 FROM schema_migrations [42102-200]
-2024-06-06 04:58:29 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/lireyes/selgalmex/selgalmex_dev.db.mv.db [1.4.200/7]" [50000-200]
+2024-06-06 04:39:38,260 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 04:39:38,568 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-06 04:41:05,542 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
+2024-06-06 04:41:05,549 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.database - creating migration table 'schema_migrations' 
+2024-06-06 04:41:05,563 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x64909205 /home/lireyes/selgalmex/resources/migrations] 
+2024-06-06 04:41:05,565 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094033] 
+2024-06-06 04:41:05,566 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094033-cedes 
+2024-06-06 04:41:05,571 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
+2024-06-06 04:41:05,576 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094033 complete 
+2024-06-06 04:41:05,581 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
+2024-06-06 04:41:44,878 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
+2024-06-06 04:41:44,880 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x3fc662b4 /home/lireyes/selgalmex/resources/migrations] 
+2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094132] 
+2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094132-entregascede 
+2024-06-06 04:41:44,882 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
+2024-06-06 04:41:44,888 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094132 complete 
+2024-06-06 04:41:44,890 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
+2024-06-06 04:44:21,138 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 04:44:21,511 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-06 04:58:30,887 [nREPL-session-1bc5cc4d-9bae-4110-a268-a4ccf2f9a069] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization. 
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:194)
-	at org.h2.message.DbException.convert(DbException.java:347)
-	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
-	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
-	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
-	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
-	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
-	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine$Store.convertIllegalStateException(MVTableEngine.java:206)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:182)
 	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
 	at org.h2.engine.Database.getPageStore(Database.java:2659)
 	at org.h2.engine.Database.open(Database.java:675)
@@ -82,12 +97,16 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at nrepl.middleware.session$session_exec$main_loop__15976.invoke(session.clj:201)
 	at clojure.lang.AFn.run(AFn.java:22)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/lireyes/selgalmex/selgalmex_dev.db.mv.db [1.4.200/7]" [50000-200]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
-	... 79 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/lireyes/selgalmex/selgalmex_dev.db.mv.db [1.4.200/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
-	... 73 more
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	... 71 common frames omitted
+2024-06-06 04:59:25,883 [nREPL-session-5af33e30-cd80-4999-ade4-41e8b7e311cf] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 04:59:26,185 [nREPL-session-5af33e30-cd80-4999-ade4-41e8b7e311cf] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-06 14:54:38,433 [nREPL-session-377bb578-1fe7-4bfa-b495-e53a3bd23dce] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-06 14:54:38,770 [nREPL-session-377bb578-1fe7-4bfa-b495-e53a3bd23dce] INFO  luminus.http-server - starting HTTP server on port 3000 

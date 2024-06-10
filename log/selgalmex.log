@@ -1,21 +1,32 @@
-2024-06-06 04:39:38,260 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  selgalmex.env - 
+2024-06-10 03:07:58,966 [nREPL-session-cb10ec0b-24aa-433b-a73a-06a0492d7350] INFO  selgalmex.env - 
 -=[selgalmex started successfully using the development profile]=- 
-2024-06-06 04:39:38,568 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  luminus.http-server - starting HTTP server on port 3000 
-2024-06-06 04:41:05,542 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
-2024-06-06 04:41:05,549 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.database - creating migration table 'schema_migrations' 
-2024-06-06 04:41:05,563 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x64909205 /home/lireyes/selgalmex/resources/migrations] 
-2024-06-06 04:41:05,565 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094033] 
-2024-06-06 04:41:05,566 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094033-cedes 
-2024-06-06 04:41:05,571 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
-2024-06-06 04:41:05,576 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094033 complete 
-2024-06-06 04:41:05,581 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
-2024-06-06 04:41:44,878 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Starting migrations 
-2024-06-06 04:41:44,880 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migrations - Looking for migrations in #object[java.io.File 0x3fc662b4 /home/lireyes/selgalmex/resources/migrations] 
-2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Running up for [20240606094132] 
-2024-06-06 04:41:44,881 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Up 20240606094132-entregascede 
-2024-06-06 04:41:44,882 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.migration.sql - found 1 up migrations 
-2024-06-06 04:41:44,888 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] DEBUG migratus.database - marking 20240606094132 complete 
-2024-06-06 04:41:44,890 [nREPL-session-3e01711f-f9bd-4bc5-8252-c213dc5b6680] INFO  migratus.core - Ending migrations 
-2024-06-06 04:44:21,138 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  selgalmex.env - 
+2024-06-10 03:07:59,320 [nREPL-session-cb10ec0b-24aa-433b-a73a-06a0492d7350] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 03:48:24,689 [nREPL-session-dbceba7b-6354-4232-8138-480dd514f2a2] INFO  selgalmex.env - 
 -=[selgalmex started successfully using the development profile]=- 
-2024-06-06 04:44:21,511 [nREPL-session-25c608ba-9944-49dd-9507-8170a2548e8d] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 03:48:24,999 [nREPL-session-dbceba7b-6354-4232-8138-480dd514f2a2] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 04:26:11,647 [worker-1] INFO  selgalmex.env - 
+-=[selgalmex has shut down successfully]=- 
+2024-06-10 04:26:11,649 [worker-1] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 04:26:29,823 [nREPL-session-08c86067-6ae2-4311-ae6a-027f8404ff2b] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 04:26:30,185 [nREPL-session-08c86067-6ae2-4311-ae6a-027f8404ff2b] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 04:49:25,117 [worker-1] INFO  selgalmex.env - 
+-=[selgalmex has shut down successfully]=- 
+2024-06-10 04:49:25,119 [worker-1] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 04:54:16,004 [nREPL-session-5a7ef0ea-f308-409c-8cf3-b98fb6b30b9a] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 04:54:16,369 [nREPL-session-5a7ef0ea-f308-409c-8cf3-b98fb6b30b9a] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 05:08:35,748 [nREPL-session-1a811de3-ec6b-4429-97a2-107ed267bd7e] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 05:08:36,053 [nREPL-session-1a811de3-ec6b-4429-97a2-107ed267bd7e] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 05:29:19,804 [nREPL-session-ed4081fd-12b6-477d-8f18-2d8ffc0e3ea6] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 05:29:20,095 [nREPL-session-ed4081fd-12b6-477d-8f18-2d8ffc0e3ea6] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 05:37:58,885 [nREPL-session-0b8d6c64-38b9-404a-8b04-98c2998779cd] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 05:37:59,217 [nREPL-session-0b8d6c64-38b9-404a-8b04-98c2998779cd] INFO  luminus.http-server - starting HTTP server on port 3000 
+2024-06-10 07:34:29,803 [nREPL-session-6a99b7b3-bf2a-49ff-b78b-77ddd735629e] INFO  selgalmex.env - 
+-=[selgalmex started successfully using the development profile]=- 
+2024-06-10 07:34:30,103 [nREPL-session-6a99b7b3-bf2a-49ff-b78b-77ddd735629e] INFO  luminus.http-server - starting HTTP server on port 3000 

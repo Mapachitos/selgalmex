@@ -3,6 +3,70 @@
 <div class="content">
     <div class="is-full box">
         <h1 class="title is-flex is-justify-content-center">Entregas</h1>
+
+        <!-- Campo de búsqueda -->
+        <div class="columns">
+            <div class="column">
+                <label class="label">INE:</label>
+                <div class="select is-fullwidth is-rounded">
+                    <select id="filterINE">
+                        <option value="Todos">Todos</option>
+                        <option value="Entrego">Entrego</option>
+                        <option value="No Entrego">No Entrego</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <label class="label">Recurso:</label>
+                <div class="select is-fullwidth is-rounded">
+                    <select id="filterRecurso">
+                        <option value="Todos">Todos</option>
+                        <option value="SI">Entregado</option>
+                        <option value="NO">No Entregado</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <label class="label">Ceda:</label>
+                <div class="select is-fullwidth is-rounded">
+                    <select id="filterCede">
+                        <option value="Todos">Todos</option>
+                        {% for cede in cedes %}
+                        <option value="{{cede.id}}">{{ cede.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-four-fifths field">
+                <label class="label">Buscar:</label>
+                <div class="control">
+                    <input id="searchInput" class="input" type="text" placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="column">
+                <label class="label">Campo:</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select id="filterField" class="is-full">
+                            <option value="estado">Estado</option>
+                            <option value="municipio">Municipio</option>
+                            <option value="localidad">Localidad</option>
+                            <option value="nombres">Nombres</option>
+                            <option value="apaterno">Paterno</option>
+                            <option value="amaterno">Materno</option>
+                            <option value="curp">CURP</option>
+                            <option value="fecha">Fecha</option>
+                            <option value="cedeid">Cede</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="columns has-text-weight-bold borderBotton" style="width: 100%;">
             <div class="column has-text-centered" style="width: 10%;">Estado</div>
             <div class="column has-text-centered" style="width: 10%;">Municipio</div>
@@ -11,58 +75,129 @@
             <div class="column has-text-centered" style="width: 5%;">Paterno</div>
             <div class="column has-text-centered" style="width: 5%;">Materno</div>
             <div class="column has-text-centered" style="width: 10%;">CURP</div>
-            <div class="column has-text-centered" style="width: 10%;">INE</div>
+            <div class="column has-text-centered" style="width: 10%;">Ceda</div>
             <div class="column has-text-centered" style="width: 10%;">Fecha</div>
-            <div class="column has-text-centered" style="width: 10%;">Recurso Entregado</div>
-            <div class="column has-text-centered" style="width: 5%;">Clave Cede</div>
+            <div class="column has-text-centered" style="width: 10%;">Entrega INE</div>
+            <div class="column has-text-centered" style="width: 5%;">Recurso</div>
             <div class="column has-text-centered" style="width: 5%;">Eliminar</div>
             <div class="column has-text-centered" style="width: 5%;">Actualizar</div>
         </div>
         {% for entrega in entregas %}
-        <form method="post">
-            {% csrf-field %}
-            <input type="hidden" name="id" value="{{ entrega.id }}">
-            <div class="columns" style="width: 100%;"><!-- Este es el que vas a iterar -->
-                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="estado" value="{{ entrega.estado }}"></div>
-                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="municipio" value="{{ entrega.municipio }}"></div>
-                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="localidad" value="{{ entrega.localidad }}"></div>
-                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="nombres" value="{{ entrega.nombres }}"></div>
-                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="apaterno" value="{{ entrega.apaterno }}"></div>
-                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="amaterno" value="{{ entrega.amaterno }}"></div>
-                <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="curp" value="{{ entrega.curp }}"></div>
-                <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
-                    {% if entrega.ine = "Entrego" %}
+        <div id="cedesContainer">
+            <form method="post">
+                {% csrf-field %}
+                <input type="hidden" name="id" value="{{ entrega.id }}">
+                <div class="columns" style="width: 100%;"><!-- Este es el que vas a iterar -->
+                    <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="estado"
+                            value="{{ entrega.estado }}"></div>
+                    <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="municipio"
+                            value="{{ entrega.municipio }}"></div>
+                    <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="localidad"
+                            value="{{ entrega.localidad }}"></div>
+                    <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="nombres"
+                            value="{{ entrega.nombres }}"></div>
+                    <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="apaterno"
+                            value="{{ entrega.apaterno }}"></div>
+                    <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="amaterno"
+                            value="{{ entrega.amaterno }}"></div>
+                    <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="curp"
+                            value="{{ entrega.curp }}"></div>
+                    <div class="column moy select is-small" style="width: 5%;">
+                        <!-- <input type="text" class="moy-text" name="cedeid" value="{{ entrega.cedeid }}"> -->
+                        <select name="cedeid" style="all: unset;">
+                            {% for cede in cedes %}
+                            {% if cede.id = entrega.cedeid %}
+                            <option value="{{cede.id}}">{{ cede.nombre }}</option>
+                            {% endif %}
+                            {% endfor %}
+                            {% for cede in cedes %}
+                            {% if cede.id = entrega.cedeid %}
+                            {% else %}
+                            <option value="{{cede.id}}">{{ cede.nombre }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="column moy" style="width: 10%;"><input type="date" class="input" name="fecha"
+                            value="{{ entrega.fecha }}"></div>
+                    <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
+                        {% if entrega.ine = "Entrego" %}
                         ✔
-                    {% else %}
+                        {% else %}
                         <input type="hidden" name="flagine" value="Entrego">
-                        <button class="button is-success mr-1" type="submit" formaction="/update-entrega-ine">Entregar</button>
-                    {% endif %}
-                    <input type="hidden" name="ine" value="{{ entrega.ine }}">
-                </div>
-                <div class="column moy" style="width: 10%;"><input type="date" class="input" name="fecha" value="{{ entrega.fecha }}"></div>
-                <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
-                    {% if entrega.estatusentrega = "SI" %}
+                        <button class="button is-info mr-1" type="submit"
+                            formaction="/update-entrega-ine">Entregar</button>
+                        {% endif %}
+                        <input type="hidden" name="ine" value="{{ entrega.ine }}">
+                    </div>
+                    <div class="column moy is-flex is-justify-content-center" style="width: 10%;">
+                        {% if entrega.estatusentrega = "SI" %}
                         ✔
-                    {% elif entrega.ine = "Entrego" %}
-                    <input type="hidden" name="flagestatusentrega" value="SI">
-                    <button class="button is-success mr-1" type="submit" formaction="/update-entrega-estatus">Entregar</button>
-                    {% else %}
+                        {% elif entrega.ine = "Entrego" %}
+                        <input type="hidden" name="flagestatusentrega" value="SI">
+                        <button class="button is-success mr-1" type="submit"
+                            formaction="/update-entrega-estatus">Entregar</button>
+                        {% else %}
                         ✖
-                    {% endif %}
-                    <input type="hidden" name="estatusentrega" value="{{ entrega.estatusentrega }}">
+                        {% endif %}
+                        <input type="hidden" name="estatusentrega" value="{{ entrega.estatusentrega }}">
+                    </div>
+                    <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
+                        <button class="button is-danger mr-1" type="submit" formaction="/delete-entrega">X</button>
+                    </div>
+                    <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
+                        <button class="button is-primary mr-1" type="submit" formaction="/update-entrega">✔</button>
+                    </div>
+
                 </div>
-                <div class="column moy" style="width: 5%;"><input type="text" class="moy-text" name="cedeid" value="{{ entrega.cedeid }}"></div>
-                <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
-                    <button class="button is-danger mr-1" type="submit" formaction="/delete-entrega">X</button>
-                </div>
-                <div class="column moy is-flex is-justify-content-center" style="width: 5%;">
-                    <button class="button is-primary mr-1" type="submit" formaction="/update-entrega">✔</button>
-                </div>
-                
-            </div>
-        </form>
+            </form>
+        </div>
         {% endfor %}
     </div>
 </div>
-</div>
+<script>
+    function filterRows(flag) {
+        if (flag) {
+            document.getElementById('searchInput').value = '';
+        }
+        const filterField = document.getElementById('filterField').value;
+        const filterValue = document.getElementById('searchInput').value.toLowerCase();
+        const rows = document.querySelectorAll('#cedesContainer .columns');
+
+        rows.forEach(row => {
+            const fieldValue = row.querySelector(`input[name="${filterField}"]`).value.toLowerCase();
+            row.style.display = fieldValue.includes(filterValue) ? '' : 'none';
+        });
+    }
+    document.getElementById('searchInput').addEventListener('input', function () { filterRows(false); });
+    document.getElementById('filterField').addEventListener('change', function () { filterRows(true); });
+
+    document.getElementById('filterINE').addEventListener('change', function () {
+        const filterValue = document.getElementById('filterINE').value;
+        if (filterValue == 'Todos') return filterRows(true);
+        const rows = document.querySelectorAll('#cedesContainer .columns');
+        rows.forEach(row => {
+            const fieldValue = row.querySelector(`input[name="ine"]`).value;
+            row.style.display = fieldValue == filterValue ? '' : 'none';
+        });
+    });
+    document.getElementById('filterRecurso').addEventListener('change', function () {
+        const filterValue = document.getElementById('filterRecurso').value;
+        if (filterValue == 'Todos') return filterRows(true);
+        const rows = document.querySelectorAll('#cedesContainer .columns');
+        rows.forEach(row => {
+            const fieldValue = row.querySelector(`input[name="estatusentrega"]`).value;
+            row.style.display = fieldValue == filterValue ? '' : 'none';
+        });
+    });
+    document.getElementById('filterCede').addEventListener('change', function () {
+        const filterValue = document.getElementById('filterCede').value;
+        if (filterValue == 'Todos') return filterRows(true);
+        const rows = document.querySelectorAll('#cedesContainer .columns');
+        rows.forEach(row => {
+            const fieldValue = row.querySelector(`select[name="cedeid"]`).value;
+            row.style.display = fieldValue == filterValue ? '' : 'none';
+        });
+    });
+</script>
 {% endblock %}

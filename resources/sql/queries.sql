@@ -80,3 +80,16 @@ SET estatusentrega = :flagestatusentrega
 UPDATE entregas
 SET ine = :flagine
     WHERE id = :id;
+
+------------------------------ TOOLS --------------------------------
+-- :name get-estados :? :*
+-- :doc retrieves estados
+SELECT DISTINCT estado FROM entregas;
+
+-- :name get-municipios :? :*
+-- :doc retrieves municipios
+SELECT DISTINCT municipio FROM entregas;
+
+-- :name get-localidades :? :*
+-- :doc retrieves localidades
+SELECT DISTINCT localidad FROM entregas;

@@ -2,7 +2,32 @@
 {% block content %}
 <div class="content">
   <div class="is-full box">
-      <h1 class="title is-flex is-justify-content-center">Cedes</h1>
+      <h1 class="title is-flex is-justify-content-center">Cedas</h1>
+
+      <!-- Campo de búsqueda -->
+      <div class="field">
+        <label class="label">Buscar por:</label>
+        <div class="control">
+          <div class="select">
+            <select id="filterField">
+              <option value="nombre">Nombre</option>
+              <option value="ubicacion">Ubicación</option>
+              <option value="responsable">Responsable</option>
+              <option value="selgalmexid">Selgalmex ID</option>
+              <option value="saderid">Sader ID</option>
+              <option value="telefono">Teléfono</option>
+              <option value="titulo">Título</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Valor:</label>
+        <div class="control">
+          <input id="searchInput" class="input" type="text" placeholder="Buscar...">
+        </div>
+      </div>
+
       <div class="columns has-text-weight-bold borderBotton" style="width: 100%;">
         <div class="column has-text-centered" style="width: 10%;">Cede ID</div>
         <div class="column has-text-centered" style="width: 10%;">Nombre</div>
@@ -17,23 +42,45 @@
         <div class="column has-text-centered" style="width: 10%;">Eliminar</div>
     </div>
     {% for cede in cedes %}
-    <form method="post">  {% csrf-field %}
-      <input type="hidden" name="id" value="{{ cede.id }}" />
-      <div class="columns" style="width: 100%;">
-        <div class="column moy is-flex is-justify-content-center" style="width: 10%;">{{ cede.id }}</div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="nombre" value="{{ cede.nombre }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="ubicacion" value="{{ cede.ubicacion }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="responsable" value="{{ cede.responsable }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="selgalmexid" value="{{ cede.selgalmexid }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="saderid" value="{{ cede.saderid }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="telefono" value="{{ cede.telefono }}"></div>
-        <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="titulo" value="{{ cede.titulo }}"></div>
-        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-success" type="submit" formaction="/entregas/{{ cede.id }}">👁</button></div>
-        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-primary" type="submit" formaction="/update-cede">✔</button></div>
-        <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-danger" type="submit" formaction="/delete-cede">X</button></div>
-      </div>
-    </form>
+    <div id="cedesContainer">
+      <form method="post">  {% csrf-field %}
+        <input type="hidden" name="id" value="{{ cede.id }}" />
+        <div class="columns" style="width: 100%;">
+          <div class="column moy is-flex is-justify-content-center" style="width: 10%;">{{ cede.id }}</div>
+          <div class="column moy" style="width: 10%;"><input type="text" style="all: unset;" name="nombre" value="{{ cede.nombre }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="ubicacion" value="{{ cede.ubicacion }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="responsable" value="{{ cede.responsable }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="selgalmexid" value="{{ cede.selgalmexid }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="saderid" value="{{ cede.saderid }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="telefono" value="{{ cede.telefono }}"></div>
+          <div class="column moy" style="width: 10%;"><input type="text" class="moy-text" name="titulo" value="{{ cede.titulo }}"></div>
+          <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-success" type="submit" formaction="/entregas/{{ cede.id }}">👁</button></div>
+          <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-primary" type="submit" formaction="/update-cede">✔</button></div>
+          <div class="column moy is-flex is-justify-content-center" style="width: 10%;"><button class="button is-danger" type="submit" formaction="/delete-cede">X</button></div>
+        </div>
+      </form>
+    </div>
     {% endfor %}
   </div>
 </div>
+
+<script>
+function filterRows(flag) {
+    if (flag) {
+      document.getElementById('searchInput').value = '';
+    }
+    const filterField = document.getElementById('filterField').value;
+    const filterValue = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#cedesContainer .columns');
+    
+    rows.forEach(row => {
+      const fieldValue = row.querySelector(`input[name="${filterField}"]`).value.toLowerCase();
+      row.style.display = fieldValue.includes(filterValue) ? '' : 'none';
+    });
+  }
+
+  document.getElementById('searchInput').addEventListener('input', function() { filterRows(false); });
+  document.getElementById('filterField').addEventListener('change', function() { filterRows(true); });
+</script>
+
 {% endblock %}
